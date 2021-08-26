@@ -1,0 +1,22 @@
+{
+  "name": "tdd-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sudlon/TDD-training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sudlon/TDD-training/issues"
+  },
+  "homepage": "https://github.com/Sudlon/TDD-training#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  }
+}
