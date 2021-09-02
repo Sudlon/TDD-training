@@ -43,54 +43,53 @@ class Rover {
 }
 
 describe('mars rover', () => {
-    xdescribe("turns right", () => {
-        it("should have dirIndex of 1 when it was 0 and turning right", () => {
-            const rover = new Rover(1, 2, 0);
+    describe("turns right", () => {
+        it("should have dir = 'E' when it was 'N' and turning right", () => {
+            const rover = new Rover(1, 2, 'N');
             rover.turnRight();
-            expect(rover.dirIndex).toBe(1);
+            expect(rover.dir).toBe('E');
         });
     
-        it("should have dirIndex of 2 when it was 1 and turning right", () => {
-            const rover = new Rover(1, 2, 1);
+        it("should have dir = 'S' when it was 'E' and turning right", () => {
+            const rover = new Rover(1, 2, 'E');
             rover.turnRight();
-            expect(rover.dirIndex).toBe(2);
+            expect(rover.dir).toBe('S');
         });
 
-        it("should have dirIndex of 3 when it was 2 and turning right", () => {
-            const rover = new Rover(1, 2, 2);
+        it("should have dir = 'W' when it was 'S' and turning right", () => {
+            const rover = new Rover(1, 2, 'S');
             rover.turnRight();
-            expect(rover.dirIndex).toBe(3);
+            expect(rover.dir).toBe('W');
         });
 
-        it("should have dirIndex of 4 when it was 3 and turning right", () => {
-            const rover = new Rover(1, 2, 3);
+        it("should have dir = 'N' when it was 'W' and turning right", () => {
+            const rover = new Rover(1, 2, 'W');
             rover.turnRight();
-            expect(rover.dirIndex).toBe(0);
+            expect(rover.dir).toBe('N');
         });
     });
 
     describe("turns left", () => {
-        
         // check out: parameterized tests
-        it("should have dirIndex of 3 when it was 0 and turning right", () => {
+        it("should have dir = 'W' when it was 'N' and turning left", () => {
             const rover = new Rover(1, 2, 'N');
             rover.turnLeft();
             expect(rover.dir).toBe('W');
         });
 
-        it("should have dirIndex of 2 when it was 3 and turning right", () => {
+        it("should have dir = 'S' when it was 'W' and turning left", () => {
             const rover = new Rover(1, 2, 'W');
             rover.turnLeft();
             expect(rover.dir).toBe('S');
         });
 
-        it("should have dirIndex of 1 when it was 2 and turning right", () => {
+        it("should have dir = 'E' when it was 'S' and turning left", () => {
             const rover = new Rover(1, 2, 'S');
             rover.turnLeft();
             expect(rover.dir).toBe('E');
         });
         
-        it("should have dirIndex of 0 when it was 1 and turning right", () => {
+        it("should have dir = 'N' when it was 'E' and turning left", () => {
             const rover = new Rover(1, 2, 'E');
             rover.turnLeft();
             expect(rover.dir).toBe('N');
@@ -98,25 +97,25 @@ describe('mars rover', () => {
     });
 
     describe('move', () => {
-        it('should increase yCoord by 1 when moving forward and facing dirIndex = 0', () => {
+        it('should increase yCoord by 1 when moving forward and facing dir = "N"', () => {
             const rover = new Rover(0, 0, 'N');
             rover.moveForward();
             expect(rover.coords).toStrictEqual({x:0, y:1});
         })
 
-        it('should increase xCoord by 1 when moving forward and facing dirIndex = 1', () => {
+        it('should increase xCoord by 1 when moving forward and facing dir = "E"', () => {
             const rover = new Rover(0, 0, 'E');
             rover.moveForward();
             expect(rover.coords).toStrictEqual({x:1, y:0});
         })
 
-        it('should decrease yCoord by 1 when moving forward and facing dirIndex = 2', () => {
+        it('should decrease yCoord by 1 when moving forward and facing dir = "S"', () => {
             const rover = new Rover(0, 0, 'S');
             rover.moveForward();
             expect(rover.coords).toStrictEqual({x:0, y:-1});
         })
 
-        it('should decrease xCoord by 1 when moving forward and facing dirIndex = 3', () => {
+        it('should decrease xCoord by 1 when moving forward and facing dir = "W"', () => {
             const rover = new Rover(0, 0, 'W');
             rover.moveForward();
             expect(rover.coords).toStrictEqual({x:-1, y:0});
