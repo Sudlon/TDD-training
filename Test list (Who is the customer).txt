@@ -1,0 +1,46 @@
+/* Test list (Who is the customer)
+
+0. Customer pays for basket
+    -> Payment with discount
+        -> Fails
+        -> Success
+    -> Payment No discount
+        -> Fails
+        -> Success
+
+1. Customer removes items from basket
+    -> There is no item (do nothing)
+    -> There is 1+ item
+
+2. Reserve CD (waiting list)
+
+3. Customer adds CDs to basket
+     -> In stock
+     -> Out of stock
+
+4. Search CD
+     -> by title
+            -> 0 results
+            -> 1 result
+            -> 1+ results
+     -. by artist
+            -> 0 results
+            -> 1 result
+            -> 1+ results
+     -> by rating
+            -> 0 results
+            -> 1 result
+            -> 1+ results
+
+5. Leave review after purchase: 1-10
+     -> Text
+            - Shorter than maximum word count
+            - Reached maximum word count
+     -> W / o text
+
+6. Record label adds physical CD to warehouse
+     -> New CD
+     -> Existing CD
+
+
+*/

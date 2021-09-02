@@ -1,3 +1,4 @@
+const { each } = require("jest-each");
 class Rover {
   dir;
   coords;
