@@ -44,6 +44,24 @@ class Rover {
     };
     this.coords = forwardMoves[this.dir](this.coords);
   }
+
+  moveBackward() {
+    const forwardMoves = {
+      N: function ({ x, y }) {
+        return { x: x, y: y - 1 };
+      },
+      E: function ({ x, y }) {
+        return { x: x - 1, y: y };
+      },
+      S: function ({ x, y }) {
+        return { x: x, y: y + 1 };
+      },
+      W: function ({ x, y }) {
+        return { x: x + 1, y: y };
+      },
+    };
+    this.coords = forwardMoves[this.dir](this.coords);
+  }
 }
 
 describe("mars rover", () => {
@@ -100,7 +118,7 @@ describe("mars rover", () => {
     });
   });
 
-  describe("move", () => {
+  describe("move forward", () => {
     it('should increase yCoord by 1 when moving forward and facing dir = "N"', () => {
       const rover = new Rover(0, 0, "N");
       rover.moveForward();
@@ -123,6 +141,41 @@ describe("mars rover", () => {
       const rover = new Rover(0, 0, "W");
       rover.moveForward();
       expect(rover.coords).toStrictEqual({ x: -1, y: 0 });
+    });
+  });
+
+  describe("move backward", () => {
+    each([["N", { x: 0, y: -1 }]]).it(
+      "should decrease yCoord by 1 when moving forward and facing dir = %s",
+      (dir, expectedCoord) => {
+        const rover = new Rover(0, 0, dir);
+        rover.moveBackward();
+        expect(rover.coords).toStrictEqual(expectedCoord);
+      }
+    );
+
+    it('should decrease yCoord by 1 when moving forward and facing dir = "N"', () => {
+      const rover = new Rover(0, 0, "N");
+      rover.moveBackward();
+      expect(rover.coords).toStrictEqual({ x: 0, y: -1 });
+    });
+
+    it('should decrease xCoord by 1 when moving forward and facing dir = "E"', () => {
+      const rover = new Rover(0, 0, "E");
+      rover.moveBackward();
+      expect(rover.coords).toStrictEqual({ x: -1, y: 0 });
+    });
+
+    it('should increase yCoord by 1 when moving forward and facing dir = "S"', () => {
+      const rover = new Rover(0, 0, "S");
+      rover.moveBackward();
+      expect(rover.coords).toStrictEqual({ x: 0, y: 1 });
+    });
+
+    it('should increase xCoord by 1 when moving forward and facing dir = "W"', () => {
+      const rover = new Rover(0, 0, "W");
+      rover.moveBackward();
+      expect(rover.coords).toStrictEqual({ x: 1, y: 0 });
     });
   });
 });
